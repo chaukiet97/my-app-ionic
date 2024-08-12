@@ -1,0 +1,97 @@
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+ion-badge {
+  min-width: 18px;
+  font-size: 12px;
+  left: calc(50% + 3px);
+}
+ion-tab-bar {
+  padding: 0px;
+  height: 64px;
+  position: relative;
+  background: #fff;
+  border: none;
+  overflow: inherit !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+ion-tab-button{
+  all: unset;
+  flex-grow: 1;
+  z-index: 100;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  align-items: center;
+  will-change: transform;
+  justify-content: center;
+  padding: 0.55em 0 0.85em;
+  transition: transform var(--timeOut , var(--duration));
+}
+ion-tab-button::before{
+  content: "";
+  z-index: -1;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0);
+  transition: background-color .7s, transform .7s;
+}
+ion-icon {
+  color: #6c6c6c;
+  margin: 0px;
+  width: 0.6em;
+  height: 0.6em;
+}
+.tab-selected{
+  transform: translate3d(0, -.8em , 0);
+  &::before{
+    transform: scale(1);
+    background: rgb(85, 171, 116);
+    background: linear-gradient(81deg, rgba(85, 171, 116, 1) 0%, rgba(99, 195, 95, 1) 100%);
+  }
+}
+.tab-selected ion-icon {
+  width: 0.6em;
+  height: 0.6em;
+  // margin-top: -18px;
+  position: relative;
+  padding: 8px;
+  border-radius: 100%;
+  color: #fff;
+  // box-shadow: 0 10px 25px rgba(28, 122, 59, 0.30);
+  background: rgb(85, 171, 116);
+  background: linear-gradient(81deg, rgba(85, 171, 116, 1) 0%, rgba(99, 195, 95, 1) 100%);
+  // transform: translate3d(0, -.8em , 0);
+  animation: strok 1.5s reverse;
+  &::before{
+    transform: scale(1);
+    background: rgb(85, 171, 116);
+    background: linear-gradient(81deg, rgba(85, 171, 116, 1) 0%, rgba(99, 195, 95, 1) 100%);
+  }
+}
+@keyframes strok {
+
+  100% {
+
+      stroke-dashoffset: 50;
+
+  }
+
+}
+ion-tab-button {
+  overflow: inherit !important;
+  background-color: #fff !important;
+}
+.tab-selected {
+  overflow: inherit !important;
+}
+.button-native {
+  overflow: inherit !important;
+}
+
+ion-tab-bar { contain: none !important; }
+ion-tab-button::part(native) {overflow: visible !important;}

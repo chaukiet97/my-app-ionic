@@ -4,7 +4,24 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'home',
+    pathMatch:'full'
+  },
+  {
+    path:'home',
+    loadChildren:() =>import('./modules/home/home.module').then(m=>m.HomeModule)
+  },
+  {
+    path:'shop',
+    loadChildren:() =>import('./modules/shop/shop.module').then(m=>m.ShopModule)
+  },
+  {
+    path:'account',
+    loadChildren:() =>import('./modules/account/account.module').then(m=>m.AccountModule)
+  },
+  {
+    path:'settings',
+    loadChildren:() =>import('./modules/settings/settings.module').then(m=>m.SettingsModule)
   }
 ];
 @NgModule({
